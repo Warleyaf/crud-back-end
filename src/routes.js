@@ -2,16 +2,13 @@ import { Router } from "express";
 
 import HelloController from "./controllers/HelloController";
 import UsersController from "./controllers/UsersController";
-
+import SessionsController from "./controllers/SessionsController";
 import RepositoriesController from "./controllers/RepositoriesController";
 import auth from "./middlewares/auth";
 
 const routes = new Router();
 
-
-// ------ tudo que estiver daqui pra baixo meio que vai estar protegido pelo nosso JWT
-// para isso preciso adicionar a biblioteca jsonwebtoken, usando o comando yarn add jsonwebtoken
-
+routes.post('/sessions', SessionsController.create) // só compara o usuário e senha se estão correto
 routes.get('/hello', HelloController.index);
 
 // routes.use(auth) controle do middleware, daqui pra cima publico, e daqui pra baixo privado
