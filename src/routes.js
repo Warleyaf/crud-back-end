@@ -12,7 +12,8 @@ routes.post('/sessions', SessionsController.create) // só compara o usuário e 
 routes.get('/hello', HelloController.index);
 
 // routes.use(auth) controle do middleware, daqui pra cima publico, e daqui pra baixo privado
-routes.use(auth)
+
+//routes.use(auth)
 
 // Rotas privadas
 // Formato de criar rota e essa é a Restfull
@@ -24,6 +25,6 @@ routes.delete('/users/:id', UsersController.destroy);
 
 routes.get('/users/:user_id/repositories', RepositoriesController.index);
 routes.post('/users/:user_id/repositories', RepositoriesController.create);
-routes.delete('/users/:user_id/repositories', RepositoriesController.destroy)
+routes.delete('/users/:user_id/repositories/:id', RepositoriesController.destroy)
 
 export default routes;
